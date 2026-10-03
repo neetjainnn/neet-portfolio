@@ -14,13 +14,13 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 body.is-loading { overflow: hidden; }
@@ -323,20 +323,70 @@ body.ready .reveal-line { opacity: 1; transform: none; transition: opacity 1s 0.
   .nav-email { display: none; }
 }
 @media (max-width: 767px) {
-  .nav { padding: 16px; }
-  .nav-links { gap: 18px; }
+  /* nav */
+  .nav { padding: 14px 16px; }
+  .nav-logo { font-size: 17px; }
+  .nav-links { gap: 14px; font-size: 11px; letter-spacing: 0.5px; }
   .socials { display: none; }
-  .resume-btn { right: 16px; bottom: 16px; padding: 8px 14px; font-size: 12px; }
+  .resume-btn { right: 16px; bottom: 16px; padding: 8px 14px; font-size: 11px; letter-spacing: 2px; }
 
-  .landing { flex-direction: column; justify-content: space-between; align-items: flex-start; padding-top: 96px; padding-bottom: 90px; height: 100svh; }
+  /* hero: name on top, character in the middle, role at the bottom */
+  .landing { flex-direction: column; justify-content: space-between; align-items: flex-start; padding-top: 88px; padding-bottom: 84px; height: 100svh; min-height: 560px; }
   .landing-left, .landing-right { margin: 0; }
   .landing-right { align-self: flex-end; text-align: right; }
   .landing-right .role { right: 0; left: auto; }
-  .role-rotator { min-width: 0; width: 6.2em; margin-left: auto; }
+  .role-rotator { min-width: 0; width: 6.2em; margin-left: auto; font-size: 40px; height: 44px; }
   .hero-name { font-size: 15vw; }
+  .eyebrow { font-size: 15px; }
+  .role-sub { font-size: 17px; }
   .scroll-hint { display: none; }
-  .canvas-wrap { height: 100vh; bottom: 0; }
-  @media (prefers-reduced-motion: reduce) {
+  .canvas-wrap { height: 100svh; bottom: auto; top: -4svh; }
+
+  /* about + what I do: full width, solid background over the 3D */
+  .about, .whatido { min-height: auto; display: block; padding-top: 96px; padding-bottom: 32px; background: var(--bg); }
+  .about-inner, .whatido-cards, .whatido-title { width: 100%; }
+  .about-text { font-size: 22px; }
+  .about-text.small { font-size: 15px; }
+  .stats { gap: 10px; }
+  .stats b { font-size: 26px; }
+  .stats span { font-size: 11px; }
+  .whatido-title { margin-bottom: 24px; }
+  .wid-card { padding: 22px 18px; }
+  .wid-card h3 { font-size: 20px; }
+  .wid-card p { font-size: 14px; }
+
+  /* section rhythm */
+  .career, .work, .leadership, .stack, .contact { padding-top: 88px; }
+  .section-title { margin-bottom: 40px; }
+
+  /* career timeline */
+  .timeline { padding-left: 30px; }
+  .timeline-line { left: 5px; }
+  .tl-item { padding-bottom: 44px; }
+  .tl-item::before { left: -31px; top: 34px; }
+  .tl-head { flex-direction: column-reverse; gap: 6px; }
+  .tl-year { text-align: left; font-size: 26px; }
+  .tl-year small { display: inline; margin-left: 8px; font-size: 11px; }
+  .tl-head h3 { font-size: 21px; }
+  .tl-head h4 { font-size: 14px; }
+  .tl-item p, .tl-item li { font-size: 14px; }
+  .highlights { grid-template-columns: 1fr; gap: 8px; }
+  .hl-card { display: flex; align-items: baseline; gap: 12px; padding: 10px 14px; }
+  .hl-card b { font-size: 20px; min-width: 92px; }
+
+  /* toolkit */
+  .marquee-track span { font-size: 17px; padding: 10px 18px; }
+
+  /* work, leadership, contact */
+  .work-grid { grid-template-columns: 1fr; }
+  .project-visual { height: 160px; }
+  .lead { grid-template-columns: 1fr; gap: 4px; padding: 20px 4px; }
+  .lead-org { font-size: 19px; }
+  .contact-title { font-size: 44px; margin-bottom: 48px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .credit { text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
   html { scroll-behavior: auto; }
 }

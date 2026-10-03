@@ -159,6 +159,8 @@ export function initScene(container) {
     layout.mobile = w <= 1024;
     renderer.setSize(w, h);
     camera.aspect = w / h;
+    // on tall/narrow screens zoom out so the whole character fits the width
+    camera.zoom = camera.aspect < 1.2 ? 1.1 * (camera.aspect / 1.5) : 1.1;
     camera.updateProjectionMatrix();
   }
   resize();
