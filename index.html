@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neet Jain — Product & Business Analytics</title>
+    <meta
+      name="description"
+      content="Neet Jain — product & business professional working across fintech, insurtech, analytics and automation. MSc Business Analytics & AI at Warwick Business School."
+    />
+    <meta property="og:title" content="Neet Jain — Product & Business Analytics" />
+    <meta property="og:description" content="Product, analytics and automation across fintech and insurtech." />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230b0a10'/><text x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='%235eead4' text-anchor='middle'>NJ</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body class="is-loading">
+    <!-- loader -->
+    <div class="loader" id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">NJ</div>
+        <div class="loader-bar"><span id="loaderBar"></span></div>
+        <div class="loader-pct"><span id="loaderPct">0</span>%</div>
+      </div>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+
+    <!-- 3D canvas (fixed, sits behind the content) -->
+    <div class="canvas-wrap" id="canvasWrap"><div class="character-rim"></div></div>
+
+    <header class="nav">
+      <a href="#top" class="nav-logo" data-cursor>Neet Jain</a>
+      <a href="mailto:neetjain1402@gmail.com" class="nav-email" data-cursor>neetjain1402@gmail.com</a>
+      <nav class="nav-links">
+        <a href="#about" data-cursor>About</a>
+        <a href="#career" data-cursor>Experience</a>
+        <a href="#contact" data-cursor>Contact</a>
+      </nav>
+    </header>
+
+    <aside class="socials">
+      <a href="https://github.com/neetjainnn" target="_blank" rel="noopener" aria-label="GitHub" data-cursor>
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.3-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.06.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/neet-jain-596a01257/" target="_blank" rel="noopener" aria-label="LinkedIn" data-cursor>
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+      </a>
+      <a href="mailto:neetjain1402@gmail.com" aria-label="Email" data-cursor>
+        <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7"/></svg>
+      </a>
+    </aside>
+
+    <a class="resume-btn" href="Neet_Jain_UK_CV.pdf" target="_blank" rel="noopener" data-cursor>
+      Resume
+      <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>
+    </a>
+
+    <main id="top">
+      <!-- landing -->
+      <section class="landing" id="landing">
+        <div class="landing-left">
+          <p class="eyebrow reveal-line">Hello! I'm</p>
+          <h1 class="hero-name">
+            <span class="split">NEET</span>
+            <span class="split">JAIN</span>
+          </h1>
+        </div>
+        <div class="landing-right">
+          <p class="eyebrow reveal-line">A Product &amp;</p>
+          <div class="role-rotator" aria-live="polite">
+            <span class="role is-active">Business</span>
+            <span class="role">Analytics</span>
+            <span class="role">Automation</span>
+          </div>
+          <p class="role-sub reveal-line">Professional</p>
+        </div>
+        <div class="scroll-hint">
+          <span>Scroll</span>
+          <i></i>
+        </div>
+      </section>
+
+      <!-- about -->
+      <section class="about" id="about">
+        <div class="about-inner">
+          <h2 class="section-kicker">About me</h2>
+          <p class="about-text">
+            Analytically driven <em>product &amp; business</em> professional with hands-on experience in
+            <em>fintech</em> and <em>insurtech</em> — combining product strategy, automation and data-informed
+            decision-making.
+          </p>
+          <p class="about-text small">
+            B.Tech in Information Technology from Manipal University Jaipur (CGPA 9.20), now pursuing an MSc in
+            Business Analytics &amp; AI at Warwick Business School. Outside work I've led some of the largest
+            student initiatives on campus.
+          </p>
+          <div class="stats">
+            <div><b>9.20</b><span>B.Tech CGPA</span></div>
+            <div><b>2</b><span>Product internships</span></div>
+            <div><b>4</b><span>Campus leadership roles</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- what I do -->
+      <section class="whatido" id="whatido">
+        <div class="whatido-title">
+          <h2>W<span class="hl">HAT</span><br />I<span class="hl"> DO</span></h2>
+        </div>
+        <div class="whatido-cards">
+          <article class="wid-card" data-cursor>
+            <div class="wid-corner"></div>
+            <h3>PRODUCT &amp; ANALYTICS</h3>
+            <h4>Turning user data into product decisions</h4>
+            <p>
+              Feature discovery, KPI tracking and dashboards, and revamps driven by usage insight — from Equity
+              &amp; F&amp;O analytics to watchlist redesigns at a large fintech platform.
+            </p>
+            <div class="tags">
+              <span>Mixpanel</span><span>CleverTap</span><span>AppsFlyer</span><span>SQL</span><span>Tableau</span
+              ><span>Jira</span><span>Excel</span>
+            </div>
+          </article>
+          <article class="wid-card" data-cursor>
+            <div class="wid-corner"></div>
+            <h3>AUTOMATION &amp; AI</h3>
+            <h4>Building tools that remove manual work</h4>
+            <p>
+              Workflow automation, ETL pipelines and GenAI tooling — n8n flows, API integrations and Python scripts
+              that turn hours of operations work into minutes.
+            </p>
+            <div class="tags">
+              <span>Python</span><span>n8n</span><span>FastAPI</span><span>React</span><span>PostgreSQL</span
+              ><span>Supabase</span><span>AWS</span><span>Postman</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- career -->
+      <section class="career" id="career">
+        <h2 class="section-title">My career <span class="hl">&amp;</span><br />experience</h2>
+        <div class="timeline">
+          <div class="timeline-line"><span id="timelineFill"></span></div>
+
+          <div class="tl-item">
+            <div class="tl-head">
+              <div>
+                <h3>MSc Business Analytics &amp; AI <svg class="flag" viewBox="0 0 60 30" role="img" aria-label="United Kingdom"><clipPath id="ukc"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="ukt"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><g clip-path="url(#ukc)"><path d="M0 0v30h60V0z" fill="#012169"/><path d="M0 0l60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="M0 0l60 30m0-30L0 30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></g></svg></h3>
+                <h4>Warwick Business School, University of Warwick</h4>
+              </div>
+              <span class="tl-year">2026<small>Coventry, UK · Now</small></span>
+            </div>
+            <p>Deepening the analytics, machine learning and AI side of product and business decision-making.</p>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-head">
+              <div>
+                <h3>Product Intern</h3>
+                <h4>Upstox Securities · Fintech &amp; Wealth Management</h4>
+              </div>
+              <span class="tl-year">2025<small>Oct 2025 – Jul 2026 · Mumbai</small></span>
+            </div>
+            <div class="highlights">
+              <div class="hl-card"><b>70%</b><span>increase in watchlist adoption</span></div>
+              <div class="hl-card"><b>Scanners</b><span>platform built and shipped</span></div>
+              <div class="hl-card"><b>Wrapped</b><span>personalised insights for users</span></div>
+            </div>
+            <ul>
+              <li>Built the <b>Scanners platform</b> and improved <b>watchlist adoption by 70%</b>.</li>
+              <li>Built an internal FD Tracker that sped up fixed-deposit monitoring and improved visibility across FD products.</li>
+              <li>Developed <b>Upstox Wrapped</b> — personalised insights for users that lifted engagement.</li>
+              <li>Led the Watchlist tab revamp to raise engagement and reduce drop-off.</li>
+              <li>Analysed Equity and F&amp;O usage to shape feature updates, and tracked feature KPIs on Mixpanel dashboards.</li>
+              <li>Shipped releases with product, engineering and design teams in an agile setup.</li>
+            </ul>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-head">
+              <div>
+                <h3>Product &amp; Backend Intern</h3>
+                <h4>Symbo Insurance · B2B Insurance Platform</h4>
+              </div>
+              <span class="tl-year">2025<small>Jun – Oct 2025 · Mumbai</small></span>
+            </div>
+            <ul>
+              <li>Delivered insurance product and partner integrations that sped up partner onboarding.</li>
+              <li>Automated operational workflows, cutting hours of manual effort every week.</li>
+              <li>Worked across product, backend and operations over the full product lifecycle.</li>
+            </ul>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-head">
+              <div>
+                <h3>B.Tech, Information Technology</h3>
+                <h4>Manipal University Jaipur</h4>
+              </div>
+              <span class="tl-year">2022<small>2022 – 2026 · CGPA 9.20</small></span>
+            </div>
+            <p>Secretary of the MUJ ACM Student Chapter and organiser of the university's biggest fests.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- tech stack -->
+      <section class="stack" id="stack">
+        <h2 class="section-title">My <span class="hl">toolkit</span></h2>
+        <div class="marquee">
+          <div class="marquee-track">
+            <span>Python</span><span>SQL</span><span>JavaScript</span><span>React</span><span>FastAPI</span>
+            <span>PostgreSQL</span><span>Supabase</span><span>MySQL</span><span>AWS EC2 · S3</span><span>HTML / CSS</span>
+          </div>
+        </div>
+        <div class="marquee reverse">
+          <div class="marquee-track">
+            <span>Mixpanel</span><span>CleverTap</span><span>AppsFlyer</span><span>Tableau</span><span>Excel</span>
+            <span>Jira</span><span>Postman</span><span>Jupyter</span><span>Google Colab</span><span>PowerPoint</span>
+          </div>
+        </div>
+        <div class="marquee">
+          <div class="marquee-track">
+            <span>n8n</span><span>Cursor</span><span>Windsurf</span><span>Replit</span><span>Lovable</span>
+            <span>Airtable</span><span>GenAI</span><span>CI/CD</span><span>Data pipelines</span><span>VS Code</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- work -->
+      <section class="work" id="work">
+        <h2 class="section-title">My <span class="hl">work</span></h2>
+        <div class="work-grid">
+          <a class="project" href="https://github.com/neetjainnn/zaya-healthInsuranceAiBot" target="_blank" rel="noopener" data-cursor>
+            <div class="project-visual v1">
+              <div class="chat">
+                <span class="bubble in">What does my policy cover?</span>
+                <span class="bubble out">Your plan covers hospitalisation up to ₹5L, including…</span>
+                <span class="bubble in">Is my claim approved?</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-num">01</span>
+              <h3>Zaya Health Insurance AI Bot</h3>
+              <p>A scalable health-insurance chatbot with automated, rule-based workflows and backend integrations.</p>
+              <div class="tags"><span>React</span><span>FastAPI</span><span>n8n</span></div>
+              <span class="project-link">View on GitHub →</span>
+            </div>
+          </a>
+          <a class="project" href="https://github.com/neetjainnn/Airtable-n8nInsuranceDataETLPipeline" target="_blank" rel="noopener" data-cursor>
+            <div class="project-visual v2">
+              <div class="pipe">
+                <span>Ingest</span><i></i><span>Transform</span><i></i><span>Report</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-num">02</span>
+              <h3>Insurance Data ETL Pipeline</h3>
+              <p>End-to-end automation that ingests, transforms and generates insurer-ready reports — hours of processing down to minutes.</p>
+              <div class="tags"><span>n8n</span><span>Airtable</span><span>ETL</span></div>
+              <span class="project-link">View on GitHub →</span>
+            </div>
+          </a>
+          <a class="project" href="https://github.com/neetjainnn/testcaseGenerator" target="_blank" rel="noopener" data-cursor>
+            <div class="project-visual v3">
+              <div class="tests">
+                <span><i>✓</i> TC-101 Login with valid OTP</span>
+                <span><i>✓</i> TC-102 Expired session redirect</span>
+                <span><i>✓</i> TC-103 Watchlist add / remove</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <span class="project-num">03</span>
+              <h3>Automated Test Case Generator</h3>
+              <p>Pulls Jira &amp; Confluence data and uses Generative AI to auto-generate and attach test cases, with Slack notifications.</p>
+              <div class="tags"><span>Python</span><span>GenAI</span><span>Jira API</span><span>Slack</span></div>
+              <span class="project-link">View on GitHub →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- leadership -->
+      <section class="leadership" id="leadership">
+        <h2 class="section-title">Leadership <span class="hl">&amp;</span> impact</h2>
+        <div class="lead-list">
+          <a class="lead" href="https://www.instagram.com/muj_acm" target="_blank" rel="noopener" data-cursor>
+            <span class="lead-role">Secretary</span>
+            <span class="lead-org">MUJ ACM Student Chapter</span>
+            <span class="lead-cta">@muj_acm ↗</span>
+          </a>
+          <a class="lead" href="https://www.instagram.com/reel/DKjN1gLp5mw/" target="_blank" rel="noopener" data-cursor>
+            <span class="lead-role">Managing Director</span>
+            <span class="lead-org">Oneiros'25 — Annual Techno-Cultural Fest</span>
+            <span class="lead-cta">Aftermovie ↗</span>
+          </a>
+          <a class="lead" href="https://www.instagram.com/reel/DD9UAuein-R/" target="_blank" rel="noopener" data-cursor>
+            <span class="lead-role">Convener</span>
+            <span class="lead-org">Elicit'25 — Tech Fest</span>
+            <span class="lead-cta">Aftermovie ↗</span>
+          </a>
+          <a class="lead" href="https://www.instagram.com/reel/DKW78zPpR9I/" target="_blank" rel="noopener" data-cursor>
+            <span class="lead-role">Convener</span>
+            <span class="lead-org">GHS Carnival — Hostel Inter-Block Competitions</span>
+            <span class="lead-cta">Aftermovie ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="contact" id="contact">
+        <h2 class="contact-title">Let's build<br /><span class="hl">something useful.</span></h2>
+        <div class="contact-grid">
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:neetjain1402@gmail.com" data-cursor>neetjain1402@gmail.com</a>
+            <h4>Based in</h4>
+            <p>Coventry &amp; London, UK</p>
+          </div>
+          <div>
+            <h4>Social</h4>
+            <a href="https://www.linkedin.com/in/neet-jain-596a01257/" target="_blank" rel="noopener" data-cursor>LinkedIn ↗</a>
+            <a href="https://github.com/neetjainnn" target="_blank" rel="noopener" data-cursor>GitHub ↗</a>
+            <a href="Neet_Jain_UK_CV.pdf" target="_blank" rel="noopener" data-cursor>Resume ↗</a>
+          </div>
+          <div class="credit">
+            <p>Designed &amp; built by <b>Neet Jain</b></p>
+            <p class="muted">© <span id="year"></span></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
