@@ -286,6 +286,11 @@ body.ready .reveal-line { opacity: 1; transform: none; transition: opacity 1s 0.
 .lead-role { font-family: var(--font-display); color: var(--accent); font-size: 15px; letter-spacing: 1px; text-transform: uppercase; }
 .lead-org { font-family: var(--font-display); font-size: clamp(20px, 2.2vw, 30px); font-weight: 500; }
 .lead-cta { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.lead-body { display: grid; gap: 6px; }
+.lead-desc { color: var(--muted); font-size: 14.5px; line-height: 1.6; max-width: 640px; }
+.lead-desc b { color: var(--text); font-weight: 500; }
+.lead { align-items: start; }
+.lead-role, .lead-cta { padding-top: 6px; }
 
 /* ---------- stack marquee ---------- */
 .stack { padding-left: 0; padding-right: 0; overflow: hidden; }
@@ -382,6 +387,8 @@ body.ready .reveal-line { opacity: 1; transform: none; transition: opacity 1s 0.
   .project-visual { height: 160px; }
   .lead { grid-template-columns: 1fr; gap: 4px; padding: 20px 4px; }
   .lead-org { font-size: 19px; }
+  .lead-desc { font-size: 14px; }
+  .lead-role, .lead-cta { padding-top: 0; }
   .contact-title { font-size: 44px; margin-bottom: 48px; }
   .contact-grid { grid-template-columns: 1fr; gap: 28px; }
   .credit { text-align: left; }
