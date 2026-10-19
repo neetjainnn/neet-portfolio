@@ -87,7 +87,11 @@ export function initScene(container) {
     .then(async (gltf) => {
       character = gltf.scene;
       clips = gltf.animations;
-      await renderer.compileAsync(character, camera, scene);
+      // compileAsync can hang on some mobile GPUs; don't let it block the loader
+      await Promise.race([
+        renderer.compileAsync(character, camera, scene),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]).catch(() => {});
       character.traverse((o) => {
         if (!o.isMesh) return;
         // clothing colours, as on the reference site

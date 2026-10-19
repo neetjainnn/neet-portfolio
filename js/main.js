@@ -25,7 +25,14 @@ document.querySelectorAll(".marquee-track").forEach((track) => {
 
 // ---------- 3D scene ----------
 const wrap = document.getElementById("canvasWrap");
-const scene = initScene(wrap);
+let scene;
+try {
+  scene = initScene(wrap);
+} catch (e) {
+  // no WebGL on this device: run the site without the 3D character
+  console.error("3D scene unavailable", e);
+  scene = { ready: Promise.reject(e), turnOnLights() {}, setupScroll() {} };
+}
 
 // ---------- loader ----------
 const bar = document.getElementById("loaderBar");
@@ -40,27 +47,50 @@ gsap.to(progress, {
   ease: "power1.out",
   onUpdate: renderProgress,
 });
-Promise.all([fontsReady, scene.ready.catch((e) => console.error("Character failed to load", e))]).then(() => {
+let finishing = false;
+function finishLoading() {
+  if (finishing) return;
+  finishing = true;
+  gsap.killTweensOf(progress);
   gsap.to(progress, {
     v: 100,
     duration: 0.5,
     onUpdate: renderProgress,
     onComplete: start,
   });
-});
+}
+let characterReady = false;
+const characterLoaded = scene.ready.then(
+  () => (characterReady = true),
+  (e) => console.error("Character failed to load", e)
+);
+Promise.all([fontsReady, characterLoaded]).then(finishLoading);
+// never leave visitors stuck on the loader if the model or fonts stall
+setTimeout(finishLoading, 10000);
 function renderProgress() {
   const v = Math.round(progress.v);
   bar.style.width = v + "%";
   pct.textContent = v;
 }
 
+let started = false;
 function start() {
+  if (started) return;
+  started = true;
   loader.classList.add("done");
   document.body.classList.remove("is-loading");
   document.body.classList.add("ready");
   scene.turnOnLights(gsap);
   startRoles();
   setupScroll();
+  // the character arrived after the timeout: bring it in now
+  if (!characterReady) {
+    scene.ready.then(() => {
+      scene.turnOnLights(gsap);
+      scene.setupScroll(gsap);
+      ScrollTrigger.refresh();
+    }, () => {});
+  }
 }
 
 // ---------- rotating role ----------
